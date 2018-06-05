@@ -1,21 +1,16 @@
-import React, {Component, Fragment} from 'react';
-import Counter from './Counter';
-import card1 from './components/card1'
-import card2 from './components/card2'
-import card3 from './components/card3'
-import card4 from './components/card4'
+import React from 'react';
+import Wrapper from './components/Wrapper';
+import Title from './components/Title';
+import MatchCard from './components/MatchCard';
+import cards from "./cards.json"
 
-class App extends Component {
-    render () {
-        return (
-            <Fragment>
-                <Counter />
-                <Counter />
-                <Counter />
-                <Counter />
-            </Fragment>
-        );
-    };
-};
+const App = () => (
+    <Wrapper>
+        <Title>Overwatch Memory Game!</Title>
+        {cards.map(cards =>
+            <MatchCard key={cards.id} image={cards.image}></MatchCard>
+        )}
+    </Wrapper>
+);
 
 export default App;
